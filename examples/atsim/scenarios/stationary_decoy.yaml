@@ -11,6 +11,7 @@ SurfaceShip:
       z_speed: 0
     LauncherObject:
       DecoyObjects:
+        # 4방향으로 decoy를 발사하도록 설계
         - type: "stationary"
           elevation: 45
           azimuth: 45

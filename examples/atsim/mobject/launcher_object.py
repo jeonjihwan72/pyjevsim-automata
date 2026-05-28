@@ -10,6 +10,7 @@ class LauncherObject:
 	def get_decoy_count(self):
 		return len(self.decoy_list)
 
+	# chatGPT를 통해 물리값 산출 -> 물리학자 대체
 	def get_time_of_flight(self, decoy, init_height= 0, g = 9.8):
 		speed = decoy['speed'] 
 		elevation_deg = decoy['elevation']
