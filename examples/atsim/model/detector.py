@@ -28,7 +28,7 @@ class Detector(BehaviorModel):
         message = SysMessage(self.get_name(), "threat_list")
         message.insert([])
 
-        for target in ObjectDB().items:
+        for target in ObjectDB().items:     # ObjectDB에 등록된 것들은 모두 model object임
             if self.platform.mo != target and target.check_active():
                 if self.platform.do.detect(self.platform.mo, target):
                     message.retrieve()[0].append(target)

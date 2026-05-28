@@ -7,7 +7,8 @@ class Manuever(BehaviorModel):
         
         self.platform = platform
         
-        self.init_state("Wait")
+        self.init_state("Wait")     # Initial state 설정
+        # insert_state(state_name, duration) , 상태별 최대 대기시간 설정
         self.insert_state("Wait", Infinite)
         self.insert_state("Generate", 1)
 

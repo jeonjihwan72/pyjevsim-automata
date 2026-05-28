@@ -18,8 +18,8 @@ class Torpedo(StructuralModel):
         StructuralModel.__init__(self, name)
         
         # Model Object Instantiation        
-        self.mo = ManueverObject(**yaml_data["ManueverObject"])
-        self.do = DetectorObject(**yaml_data["DetectorObject"])
+        self.mo = ManueverObject(**yaml_data["ManueverObject"])     # Manuever Object 코드 재사용
+        self.do = DetectorObject(**yaml_data["DetectorObject"])     # Detector Object 코드 재사용
         self.co = TorpedoControlObject(**yaml_data["TorpedoControlObject"])
         
         ObjectDB().items.append(self.mo)

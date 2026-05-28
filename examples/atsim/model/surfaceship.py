@@ -22,10 +22,10 @@ class SurfaceShip(StructuralModel):
         StructuralModel.__init__(self, name)
 
         # Model Object Instantiation        
-        self.mo = ManueverObject(**yaml_data["ManueverObject"])
-        self.do = DetectorObject(**yaml_data["DetectorObject"])
-        self.co = CommandControlObject(**yaml_data["CommandControlObject"])
-        self.lo = LauncherObject(**yaml_data["LauncherObject"])
+        self.mo = ManueverObject(**yaml_data["ManueverObject"])             # 위치
+        self.do = DetectorObject(**yaml_data["DetectorObject"])             # 탐지
+        self.co = CommandControlObject(**yaml_data["CommandControlObject"]) # 통제
+        self.lo = LauncherObject(**yaml_data["LauncherObject"])             # 공격
 
         # Utilities Instantiation
         ObjectDB().items.append(self.mo)

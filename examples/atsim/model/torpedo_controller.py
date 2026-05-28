@@ -34,7 +34,7 @@ class TorpedoCommandControl(BehaviorModel):
         self.threat_list = []
         self.platform.co.reset_target()
 
-        if target:
+        if target:  # 호출되는 함수만 다르고 command_control과 동일한 형태
             message = SysMessage(self.get_name(), "target")
             message.insert(target)
             msg_deliver.insert_message(message)

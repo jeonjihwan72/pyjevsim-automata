@@ -9,7 +9,7 @@ class TorpedoControlObject:
 	def reset_target(self):
 		self.prev_target = None
 
-	def get_target(self, ref_obj, target):
+	def get_target(self, ref_obj, target):	# 타겟 정보 업데이트 함수
 		
 		if not self.prev_target:
 			self.prev_target = target

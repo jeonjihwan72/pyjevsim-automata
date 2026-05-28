@@ -21,7 +21,7 @@ class Launcher(BehaviorModel):
 
         self.insert_input_port("order")
 
-        self.launch_flag = False
+        self.launch_flag = False    # 발사했는지 확인하는 플래그 (의도치 않은 연속적인 발사 방지)
 
     def ext_trans(self,port, msg):
         if port == "order":
@@ -34,6 +34,7 @@ class Launcher(BehaviorModel):
 
             for idx, decoy in enumerate(self.platform.lo.get_decoy_list()):
                 destroy_t = math.ceil(decoy['lifespan'])
+                # decoy type에 따라 model object와 model을 다르게 생성
                 if decoy["type"] == "stationary":
                     sdo = StationaryDecoyObject(self.platform.get_position(), decoy)
                     decoy_model = StationaryDecoy(f"[Decoy][{idx}]", sdo)
