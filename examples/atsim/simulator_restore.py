@@ -1,4 +1,5 @@
 import project_config
+import sys
 import yaml
 
 
@@ -8,6 +9,10 @@ from model.surfaceship import SurfaceShip
 from utils.scenario_manager import ScenarioManager
 from utils.pos_plotter import PositionPlotter
 from utils.object_db import ObjectDB
+
+# Seconds to pause per frame — controls playback speed (larger = slower).
+# Override on the command line, e.g. `python simulator_restore.py 2.0`.
+FRAME_DELAY = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
 
 pos_plot = PositionPlotter()
 #sm = ScenarioManager('./examples/atsim/scenarios/stationary_decoy.yaml')
@@ -19,7 +24,7 @@ with open('./examples/atsim/scenarios/restore_decoys.yaml', 'r') as file:
 snapshot_manager = SnapshotManager(restore_handler=RestoreHandler()) 
     
 
-se = SysExecutor(1, ex_mode=ExecutionType.R_TIME)
+se = SysExecutor(1, ex_mode=ExecutionType.V_TIME)
 #ObjectDB().set_executor(se)
 
 se.insert_input_port("start")
@@ -58,8 +63,10 @@ se.insert_external_event("start", None)
 print(se.model_map)
 
 for i in range(30):
-	se.simulate(1)
-	
+	# _tm=False so pyjevsim doesn't install a SIGINT handler that breaks
+	# Ctrl+C under the Qt event loop (see simulator.py).
+	se.simulate(1, _tm=False)
+
 	x, y, z = ship.get_position()
 	pos_plot.update_position('ship', x, y, z)
 
@@ -70,4 +77,7 @@ for i in range(30):
 		x, y, z = decoy.get_position()
 		pos_plot.update_position(name, x, y, z, 'black', 'green')
 
+	pos_plot.render(pause=FRAME_DELAY)
+
 se.terminate_simulation()
+pos_plot.keep_open()
