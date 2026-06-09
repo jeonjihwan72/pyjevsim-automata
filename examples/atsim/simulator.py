@@ -16,8 +16,8 @@ from utils.object_db import ObjectDB
 FRAME_DELAY = float(sys.argv[1]) if len(sys.argv) > 1 else 1.0
 
 pos_plot = PositionPlotter()
-#sm = ScenarioManager('./examples/atsim/scenarios/stationary_decoy.yaml')
-sm = ScenarioManager('./examples/atsim/scenarios/self_propelled_decoy.yaml')
+sm = ScenarioManager('./examples/atsim/scenarios/stationary_decoy.yaml')
+# sm = ScenarioManager('./examples/atsim/scenarios/self_propelled_decoy.yaml')
 se = SysExecutor(1, ex_mode=ExecutionType.V_TIME)
 ObjectDB().set_executor(se)
 

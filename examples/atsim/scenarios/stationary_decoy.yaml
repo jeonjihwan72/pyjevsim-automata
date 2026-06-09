@@ -1,6 +1,6 @@
 Common:
   Name: stationary_decoy
-  
+
 SurfaceShip:
   - ManueverObject:
       x: 0
@@ -11,24 +11,23 @@ SurfaceShip:
       z_speed: 0
     LauncherObject:
       DecoyObjects:
-        # 4방향으로 decoy를 발사하도록 설계
         - type: "stationary"
-          elevation: 45
+          elevation: 210
           azimuth: 45
           speed: 15
           lifespan: 5
         - type: "stationary"
-          elevation: 45
+          elevation: 336
           azimuth: 135
           speed: 15
           lifespan: 5
         - type: "stationary"
-          elevation: 45
+          elevation: 84
           azimuth: 225
           speed: 15
           lifespan: 5
         - type: "stationary"
-          elevation: 45
+          elevation: 281
           azimuth: 315
           speed: 15
           lifespan: 5
@@ -47,8 +46,6 @@ Torpedo:
       xy_speed: 5
       z_speed: 1
     DetectorObject:
-      detection_range: 35 
+      detection_range: 35
     TorpedoControlObject:
       range: 1
-    
-      

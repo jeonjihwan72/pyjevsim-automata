@@ -26,7 +26,7 @@ packaging==26.0
 pillow==12.0.0
 pluggy==1.6.0
 Pygments==2.20.0
-pyjevsim @ file:///D:/development/pyjevsim/dist/pyjevsim-1.3.0-py3-none-any.whl#sha256=ef9690d273f76afb8a74d5e7a43b698bf4825a11550be2bac5b6edaba236688d
+#pyjevsim @ file:///D:/development/pyjevsim/dist/pyjevsim-1.3.0-py3-none-any.whl#sha256=ef9690d273f76afb8a74d5e7a43b698bf4825a11550be2bac5b6edaba236688d
 pyparsing==3.3.2
 pyproject_hooks==1.2.0
 PySide6==6.11.1

@@ -1,7 +1,7 @@
 DecoyObjects:
   - type: "self_propelled"
-    elevation: 45
-    azimuth: 45
+    elevation: 45 # 발사 각도
+    azimuth: 45 # 방위각
     speed: 10
     lifespan: 10
     heading: 0
